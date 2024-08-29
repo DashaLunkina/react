@@ -1,0 +1,82 @@
+
+li {
+  background-color: #ecf0f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 10px;
+  opacity: 1; /* Make sure the item is visible by default */
+  transform: translateY(0); /* Ensure the item is positioned correctly */
+  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+li:hover {
+  background-color: #dcdde1;
+}
+
+/* Header and paragraph styling */
+li h2 {
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 5px;
+  transition: text-decoration 0.3s ease;
+}
+
+li p {
+  font-size: 14px;
+  margin: 0;
+  transition: text-decoration 0.3s ease;
+}
+
+/* Checkbox styling */
+li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Button styling */
+li button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 10px;
+  width: 80px;
+}
+
+/* Task item animation for entering */
+.task-item.enter {
+  opacity: 1; /* Ensure the item is visible when entering */
+  transform: translateY(0); /* Item is at its normal position */
+}
+
+/* Task item animation for exiting */
+.task-item.exit {
+  opacity: 0; /* Fade out */
+  transform: translateY(-20px); /* Move up */
+}
+
+/* Editing task item styling */
+.task-item-editing {
+  background-color: #f0f8ff;
+  transition: background-color 0.3s ease;
+}
+
+.task-item-editing h2,
+.task-item-editing p {
+  transition: color 0.3s ease;
+}
+
+.task-item-editing h2 {
+  color: #4682b4;
+}
+
+.task-item-editing p {
+  color: #4169e1;
+}
+

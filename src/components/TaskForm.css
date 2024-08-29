@@ -1,0 +1,39 @@
+/* TaskForm.css */
+.task-form {
+    margin-bottom: 20px;
+  }
+  
+  .task-form input,
+  .task-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f9f9f9;
+  }
+  
+  .task-form input:focus,
+  .task-form textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    background-color: #fff;
+  }
+  
+  .task-form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .task-form button:hover {
+    background-color: #2980b9;
+  }
+  
