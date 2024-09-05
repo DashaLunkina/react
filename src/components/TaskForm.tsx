@@ -1,7 +1,15 @@
 import { useEffect } from 'react';
 import './TaskForm.css';
-
-function TaskForm({ header, setHeader, description, setDescription, addTask, editingTask, saveTask }) {
+ interface TaskFormProps{
+  header:string
+  setHeader: (value: string) => void;
+  description: string;
+  setDescription: (value: string) => void;
+  addTask: () => void;
+  editingTask: { id: number; header: string; description: string } | null;
+  saveTask: (id: number) => void;
+ }
+function TaskForm({ header, setHeader, description, setDescription, addTask, editingTask, saveTask }:TaskFormProps) {
   useEffect(() => {
     if (editingTask) {
       setHeader(editingTask.header);
