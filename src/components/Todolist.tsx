@@ -3,26 +3,27 @@ import TaskList from './TaskList';
 import TaskForm from './TaskForm';
 import FilterButtons from './FilterButtons';
 import './Todolist.css'; 
+import { Task } from './type';
 
-function Todolist() {
-  const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  const [list, setList] = useState(savedTasks);
-  const [header, setHeader] = useState('');
-  const [description, setDescription] = useState('');
+const Todolist=() =>{
+  const savedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+  const [list, setList] = useState<Task[] |[]>(savedTasks);
+  const [header, setHeader] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const [filter, setFilter] = useState('all');
-  const [editingTask, setEditingTask] = useState(null);
+  const [editingTask, setEditingTask] = useState<Task|null>(null);
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(list));
   }, [list]);
 
-  const toggleStatus = (id) => {
+  const toggleStatus = (id:number) => {
     setList(list.map(item => 
       item.id === id ? { ...item, status: !item.status } : item
     ));
   };
 
-  const deleteTask = (id) => {
+  const deleteTask = (id:number) => {
     setList(list.filter(item => item.id !== id));
     if (editingTask && editingTask.id === id) {
       setEditingTask(null); // Clear editing state if the task is deleted
@@ -38,7 +39,7 @@ function Todolist() {
     setDescription('');
   };
 
-  const saveTask = (id) => {
+  const saveTask = (id:number) => {
     setList(list.map(item => 
       item.id === id 
         ? { ...item, header: header, description: description } 

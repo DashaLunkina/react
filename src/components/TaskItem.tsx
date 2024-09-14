@@ -1,7 +1,16 @@
 import { useState, useEffect } from 'react';
 import './TaskItem.css';
+import { Task } from './type';
 
-function TaskItem({ task, toggleStatus, deleteTask, startEditing }) {
+
+interface TaskItemProps {
+  task: Task;
+  toggleStatus: (id: number) => void;
+  deleteTask: (id: number) => void;
+  startEditing: (task: Task) => void;
+}
+
+const TaskItem: React.FC<TaskItemProps> = ({ task, toggleStatus, deleteTask, startEditing }) => {
   const [isEntering, setIsEntering] = useState(true);
   const [isLeaving, setIsLeaving] = useState(false);
 
@@ -19,9 +28,7 @@ function TaskItem({ task, toggleStatus, deleteTask, startEditing }) {
   };
 
   return (
-    <li
-      className={`task-item ${isEntering ? 'enter' : ''} ${isLeaving ? 'exit' : ''}`}
-    >
+    <li className={`task-item ${isEntering ? 'enter' : ''} ${isLeaving ? 'exit' : ''}`}>
       <div>
         <h2 style={{ textDecoration: task.status ? 'line-through' : 'none' }}>
           {task.header}
@@ -41,6 +48,6 @@ function TaskItem({ task, toggleStatus, deleteTask, startEditing }) {
       </div>
     </li>
   );
-}
+};
 
 export default TaskItem;
